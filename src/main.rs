@@ -23,7 +23,7 @@ struct Args {
     #[argh(option, default = "PathBuf::from(\".\")")]
     dir: PathBuf,
 
-    /// extensions
+    /// extensions files, default to ".rs"
     #[argh(option, default = "String::from(\".rs\")")]
     extensions: String,
 }
