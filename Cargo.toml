@@ -2,7 +2,9 @@
 name = "cargo-header"
 version = "0.1.0"
 edition = "2021"
-
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+license = "MPL-2.0"
 
 [dependencies]
+argh = "0.1.12"
+walkdir = "2.4.0"
+anyhow = "1.0.75"
