@@ -3,6 +3,15 @@
 version = 3
 
 [[package]]
+name = "add-header"
+version = "0.1.0"
+dependencies = [
+ "anyhow",
+ "argh",
+ "walkdir",
+]
+
+[[package]]
 name = "anyhow"
 version = "1.0.75"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -37,15 +46,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "5693f39141bda5760ecc4111ab08da40565d1771038c4a0250f03457ec707531"
 dependencies = [
  "serde",
-]
-
-[[package]]
-name = "cargo-header"
-version = "0.1.0"
-dependencies = [
- "anyhow",
- "argh",
- "walkdir",
 ]
 
 [[package]]
