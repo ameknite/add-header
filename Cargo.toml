@@ -8,6 +8,8 @@ rust-version = "1.65"
 repository = "https://github.com/ameknite/add-header"
 readme = "README.md"
 edition = "2021"
+keywords = ["cli", "header", "notice", "license"]
+categories = ["command-line-utilities"]
 
 [dependencies]
 argh = "0.1.12"
