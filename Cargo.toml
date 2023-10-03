@@ -1,6 +1,6 @@
 [package]
 name = "add-header"
-description = "A cli to add headers to your files"
+description = "A cli to add headers to files"
 authors = ["AmeKnite"]
 version = "0.1.0"
 license = "MPL-2.0"
