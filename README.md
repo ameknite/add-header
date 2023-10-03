@@ -24,7 +24,7 @@ Options:
 
 ```
 
-### Purpose
+## Purpose
 
 Makes the process of adding header notices to files easier.
 
