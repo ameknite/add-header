@@ -13,7 +13,7 @@ use argh::FromArgs;
 use walkdir::WalkDir;
 
 #[derive(FromArgs)]
-/// Cargo Header
+/// Add Header
 struct Args {
     /// path to the header file, default to: ./header
     #[argh(option, default = "PathBuf::from(\"./header\")")]
@@ -22,12 +22,16 @@ struct Args {
     /// directory to apply the header, default to current dir: .
     #[argh(option, default = "PathBuf::from(\".\")")]
     dir: PathBuf,
+
+    /// extensions
+    #[argh(option, default = "String::from(\".rs\")")]
+    extensions: String,
 }
 
 fn main() -> anyhow::Result<()> {
-    let Args { file, dir } = argh::from_env();
+    let Args { file, dir, extensions } = argh::from_env();
     let header = get_header_content(&file)?;
-    insert_header(&dir, &header)?;
+    insert_header(&dir, &header, &extensions)?;
     Ok(())
 }
 
@@ -50,18 +54,18 @@ fn get_header_content(header_path: &Path) -> anyhow::Result<String> {
     Ok(header_comment)
 }
 
-fn insert_header(dir: &Path, header: &str) -> anyhow::Result<()> {
+fn insert_header(dir: &Path, header: &str, extensions: &str) -> anyhow::Result<()> {
     for entry in WalkDir::new(dir) {
         let entry = entry?;
         let file_path = entry.path();
 
         // Skip if the file doesn't have a extension
-        let Some(extension) = file_path.extension() else {
+        let Some(extension) = file_path.extension().and_then(|e| e.to_str()) else {
             continue;
         };
 
-        // Skip if the file is not a rust file
-        if extension != "rs" {
+        // Skip if the file doesn't have the correct extension
+        if !extensions.contains(extension) {
             continue;
         }
 
