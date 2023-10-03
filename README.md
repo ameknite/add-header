@@ -19,7 +19,7 @@ Add Header
 Options:
   --file            path to the header file, default to: ./header
   --dir             directory to apply the header, default to current dir: .
-  --extensions      extensions files, default to ".rs"
+  --extensions      filter files by extensions, default to ".rs"
   --help            display usage information
 
 ```
