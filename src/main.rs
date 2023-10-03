@@ -29,7 +29,11 @@ struct Args {
 }
 
 fn main() -> anyhow::Result<()> {
-    let Args { file, dir, extensions } = argh::from_env();
+    let Args {
+        file,
+        dir,
+        extensions,
+    } = argh::from_env();
     let header = get_header_content(&file)?;
     insert_header(&dir, &header, &extensions)?;
     Ok(())
