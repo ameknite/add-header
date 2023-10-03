@@ -1,9 +1,13 @@
 [package]
 name = "add-header"
+description = "A cli to add headers to your files"
+authors = ["AmeKnite"]
 version = "0.1.0"
-edition = "2021"
 license = "MPL-2.0"
 rust-version = "1.65"
+repository = "https://github.com/ameknite/add-header"
+readme = "README.md"
+edition = "2021"
 
 [dependencies]
 argh = "0.1.12"
