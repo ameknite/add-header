@@ -23,7 +23,7 @@ struct Args {
     #[argh(option, default = "PathBuf::from(\".\")")]
     dir: PathBuf,
 
-    /// select files by extension, default to "rs", format: "rs,js,kt"
+    /// select files by extension, default to "rs", format: comma separated, e.g. "rs,js,kt"
     #[argh(option, default = "String::from(\"rs\")")]
     extensions: String,
 

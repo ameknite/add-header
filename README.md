@@ -12,16 +12,17 @@ A cli to add headers to files.
 You can install add-header with: `cargo install add-header` and run it in your project directory with: `add-header`
 
 ```bash
-Usage: add-header [--file <file>] [--dir <dir>] [--extensions <extensions>]
+Usage: add-header [--header <header>] [--dir <dir>] [--extensions <extensions>] [--comment-style <comment-style>]
 
 Add Header
 
 Options:
-  --file            path to the header file, default to: ./header
+  --header          path to the header file, default to: ./NOTICE
   --dir             directory to apply the header, default to current dir: .
-  --extensions      filter files by extensions, default to ".rs"
+  --extensions      select files by extension, default to "rs", format: comma
+                    separated, e.g. "rs,js,kt"
+  --comment-style   comment style, default to "//"
   --help            display usage information
-
 ```
 
 ## Purpose
