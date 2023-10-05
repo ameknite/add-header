@@ -14,13 +14,13 @@ You can install add-header with: `cargo install add-header` and run it in your p
 ```bash
 Usage: add-header [--header <header>] [--dir <dir>] [--extensions <extensions>] [--comment-style <comment-style>]
 
-Add Header
+A cli to add headers to files
 
 Options:
   --header          path to the header file, default to: ./NOTICE
   --dir             directory to apply the header, default to current dir: .
-  --extensions      select files by extension, default to "rs", format: comma
-                    separated, e.g. "rs,js,kt"
+  --extensions      select files by extension, default to "rs", format:
+                    comma-separated, e.g. "rs,js,kt"
   --comment-style   comment style, default to "//"
   --help            display usage information
 ```
