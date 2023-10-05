@@ -14,7 +14,7 @@ use argh::FromArgs;
 use walkdir::WalkDir;
 
 #[derive(FromArgs)]
-/// Add Header
+/// A cli to add headers to files
 struct Args {
     /// path to the header file, default to: ./NOTICE
     #[argh(option, default = "PathBuf::from(\"./NOTICE\")")]
@@ -24,7 +24,7 @@ struct Args {
     #[argh(option, default = "PathBuf::from(\".\")")]
     dir: PathBuf,
 
-    /// select files by extension, default to "rs", format: comma separated, e.g. "rs,js,kt"
+    /// select files by extension, default to "rs", format: comma-separated, e.g. "rs,js,kt"
     #[argh(option, default = "String::from(\"rs\")")]
     extensions: String,
 
