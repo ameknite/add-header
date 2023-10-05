@@ -3,8 +3,9 @@
 // file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 use std::{
+    fmt::Write,
     fs::File,
-    io::{Read, Write},
+    io::Read,
     path::{Path, PathBuf},
 };
 
@@ -51,11 +52,10 @@ fn get_header_content(header_path: &Path, comment_style: &str) -> anyhow::Result
     let mut contents = String::new();
     header_file.read_to_string(&mut contents)?;
 
-    // Add '//' to the beginning of each line
-    let mut header_comment = contents
-        .lines()
-        .map(|line| format!("{comment_style} {line}\n"))
-        .collect();
+    let mut header_comment = String::new();
+    for line in contents.lines() {
+        writeln!(&mut header_comment, "{comment_style} {line}")?;
+    }
 
     // Add a whole new line
     header_comment += "\n";
@@ -97,8 +97,8 @@ fn insert_header(dir: &Path, header: &str, extensions: &str) -> anyhow::Result<(
         let mut new_file = File::create(file_path)?;
 
         // Write the header followed by the existing content
-        new_file.write_all(header.as_bytes())?;
-        new_file.write_all(&existing_content)?;
+        std::io::Write::write_all(&mut new_file, header.as_bytes())?;
+        std::io::Write::write_all(&mut new_file, &existing_content)?;
     }
     Ok(())
 }
