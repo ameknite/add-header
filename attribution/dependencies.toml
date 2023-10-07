@@ -1,0 +1,168 @@
+[[dependency]]
+name = "add-header"
+version = "0.2.1"
+description = "A cli to add headers to files"
+license = "MPL-2.0"
+authors = ["AmeKnite"]
+repository = "https://github.com/ameknite/add-header"
+
+[[dependency]]
+name = "anyhow"
+version = "1.0.75"
+description = "Flexible concrete Error type built on std::error::Error"
+license = "MIT OR Apache-2.0"
+authors = ["David Tolnay <dtolnay@gmail.com>"]
+repository = "https://github.com/dtolnay/anyhow"
+
+[[dependency]]
+name = "argh"
+version = "0.1.12"
+description = "Derive-based argument parser optimized for code size"
+license = "BSD-3-Clause"
+notices = ["Copyright 2019 The Fuchsia Authors. All rights reserved."]
+authors = [
+    "Taylor Cramer <cramertj@google.com>",
+    "Benjamin Brittain <bwb@google.com>",
+    "Erick Tryzelaar <etryzelaar@google.com>",
+]
+repository = "https://github.com/google/argh"
+
+[[dependency]]
+name = "argh_derive"
+version = "0.1.12"
+description = "Derive-based argument parsing optimized for code size"
+license = "BSD-3-Clause"
+notices = ["Copyright 2019 The Fuchsia Authors. All rights reserved."]
+authors = [
+    "Taylor Cramer <cramertj@google.com>",
+    "Benjamin Brittain <bwb@google.com>",
+    "Erick Tryzelaar <etryzelaar@google.com>",
+]
+repository = "https://github.com/google/argh"
+
+[[dependency]]
+name = "argh_shared"
+version = "0.1.12"
+description = "Derive-based argument parsing optimized for code size"
+license = "BSD-3-Clause"
+notices = ["Copyright 2019 The Fuchsia Authors. All rights reserved."]
+authors = [
+    "Taylor Cramer <cramertj@google.com>",
+    "Benjamin Brittain <bwb@google.com>",
+    "Erick Tryzelaar <etryzelaar@google.com>",
+]
+repository = "https://github.com/google/argh"
+
+[[dependency]]
+name = "proc-macro2"
+version = "1.0.67"
+description = "A substitute implementation of the compiler's `proc_macro` API to decouple token-based libraries from the procedural macro use case."
+license = "MIT OR Apache-2.0"
+authors = [
+    "David Tolnay <dtolnay@gmail.com>",
+    "Alex Crichton <alex@alexcrichton.com>",
+]
+repository = "https://github.com/dtolnay/proc-macro2"
+
+[[dependency]]
+name = "quote"
+version = "1.0.33"
+description = "Quasi-quoting macro quote!(...)"
+license = "MIT OR Apache-2.0"
+authors = ["David Tolnay <dtolnay@gmail.com>"]
+repository = "https://github.com/dtolnay/quote"
+
+[[dependency]]
+name = "same-file"
+version = "1.0.6"
+description = """
+A simple crate for determining whether two file paths point to the same file.
+"""
+license = "Unlicense/MIT"
+notices = ["Copyright (c) 2017 Andrew Gallant"]
+authors = ["Andrew Gallant <jamslam@gmail.com>"]
+repository = "https://github.com/BurntSushi/same-file"
+
+[[dependency]]
+name = "serde"
+version = "1.0.188"
+description = "A generic serialization/deserialization framework"
+license = "MIT OR Apache-2.0"
+authors = [
+    "Erick Tryzelaar <erick.tryzelaar@gmail.com>",
+    "David Tolnay <dtolnay@gmail.com>",
+]
+repository = "https://github.com/serde-rs/serde"
+homepage = "https://serde.rs"
+
+[[dependency]]
+name = "serde_derive"
+version = "1.0.188"
+description = "Macros 1.1 implementation of #[derive(Serialize, Deserialize)]"
+license = "MIT OR Apache-2.0"
+authors = [
+    "Erick Tryzelaar <erick.tryzelaar@gmail.com>",
+    "David Tolnay <dtolnay@gmail.com>",
+]
+repository = "https://github.com/serde-rs/serde"
+homepage = "https://serde.rs"
+
+[[dependency]]
+name = "syn"
+version = "2.0.37"
+description = "Parser for Rust source code"
+license = "MIT OR Apache-2.0"
+authors = ["David Tolnay <dtolnay@gmail.com>"]
+repository = "https://github.com/dtolnay/syn"
+
+[[dependency]]
+name = "unicode-ident"
+version = "1.0.12"
+description = "Determine whether characters have the XID_Start or XID_Continue properties according to Unicode Standard Annex #31"
+license = "(MIT OR Apache-2.0) AND Unicode-DFS-2016"
+notices = ["Copyright © 1991-2022 Unicode, Inc. All rights reserved."]
+authors = ["David Tolnay <dtolnay@gmail.com>"]
+repository = "https://github.com/dtolnay/unicode-ident"
+
+[[dependency]]
+name = "walkdir"
+version = "2.4.0"
+description = "Recursively walk a directory."
+license = "Unlicense/MIT"
+notices = ["Copyright (c) 2015 Andrew Gallant"]
+authors = ["Andrew Gallant <jamslam@gmail.com>"]
+repository = "https://github.com/BurntSushi/walkdir"
+
+[[dependency]]
+name = "winapi"
+version = "0.3.9"
+description = "Raw FFI bindings for all of Windows API."
+license = "MIT/Apache-2.0"
+notices = ["Copyright (c) 2015-2018 The winapi-rs Developers"]
+authors = ["Peter Atashian <retep998@gmail.com>"]
+repository = "https://github.com/retep998/winapi-rs"
+
+[[dependency]]
+name = "winapi-i686-pc-windows-gnu"
+version = "0.4.0"
+description = "Import libraries for the i686-pc-windows-gnu target. Please don't use this crate directly, depend on winapi instead."
+license = "MIT/Apache-2.0"
+authors = ["Peter Atashian <retep998@gmail.com>"]
+repository = "https://github.com/retep998/winapi-rs"
+
+[[dependency]]
+name = "winapi-util"
+version = "0.1.6"
+description = "A dumping ground for high level safe wrappers over winapi."
+license = "Unlicense/MIT"
+notices = ["Copyright (c) 2017 Andrew Gallant"]
+authors = ["Andrew Gallant <jamslam@gmail.com>"]
+repository = "https://github.com/BurntSushi/winapi-util"
+
+[[dependency]]
+name = "winapi-x86_64-pc-windows-gnu"
+version = "0.4.0"
+description = "Import libraries for the x86_64-pc-windows-gnu target. Please don't use this crate directly, depend on winapi instead."
+license = "MIT/Apache-2.0"
+authors = ["Peter Atashian <retep998@gmail.com>"]
+repository = "https://github.com/retep998/winapi-rs"
