@@ -1,10 +1,54 @@
 [[dependency]]
 name = "add-header"
-version = "0.2.1"
+version = "0.3.1"
 description = "A cli to add headers to files"
 license = "MPL-2.0"
 authors = ["AmeKnite"]
 repository = "https://github.com/ameknite/add-header"
+
+[[dependency]]
+name = "anstream"
+version = "0.6.4"
+description = "A simple cross platform library for writing colored text to a terminal."
+license = "MIT OR Apache-2.0"
+notices = ["Copyright (c) Individual contributors"]
+repository = "https://github.com/rust-cli/anstyle.git"
+homepage = "https://github.com/rust-cli/anstyle"
+
+[[dependency]]
+name = "anstyle"
+version = "1.0.4"
+description = "ANSI text styling"
+license = "MIT OR Apache-2.0"
+notices = ["Copyright (c) 2022 The rust-cli Developers"]
+repository = "https://github.com/rust-cli/anstyle.git"
+homepage = "https://github.com/rust-cli/anstyle"
+
+[[dependency]]
+name = "anstyle-parse"
+version = "0.2.2"
+description = "Parse ANSI Style Escapes"
+license = "MIT OR Apache-2.0"
+notices = ["Copyright (c) 2016 Joe Wilm and individual contributors"]
+repository = "https://github.com/rust-cli/anstyle.git"
+homepage = "https://github.com/rust-cli/anstyle"
+
+[[dependency]]
+name = "anstyle-query"
+version = "1.0.0"
+description = "Look up colored console capabilities"
+license = "MIT OR Apache-2.0"
+notices = ["Copyright (c) Individual contributors"]
+repository = "https://github.com/rust-cli/anstyle"
+
+[[dependency]]
+name = "anstyle-wincon"
+version = "3.0.1"
+description = "Styling legacy Windows terminals"
+license = "MIT OR Apache-2.0"
+notices = ["Copyright (c) 2015 Josh Triplett, 2022 The rust-cli Developers"]
+repository = "https://github.com/rust-cli/anstyle.git"
+homepage = "https://github.com/rust-cli/anstyle"
 
 [[dependency]]
 name = "anyhow"
@@ -52,6 +96,55 @@ authors = [
     "Erick Tryzelaar <etryzelaar@google.com>",
 ]
 repository = "https://github.com/google/argh"
+
+[[dependency]]
+name = "clap"
+version = "4.4.6"
+description = "A simple to use, efficient, and full-featured Command Line Argument Parser"
+license = "MIT OR Apache-2.0"
+notices = ["Copyright (c) Individual contributors"]
+repository = "https://github.com/clap-rs/clap"
+
+[[dependency]]
+name = "clap_builder"
+version = "4.4.6"
+description = "A simple to use, efficient, and full-featured Command Line Argument Parser"
+license = "MIT OR Apache-2.0"
+notices = ["Copyright (c) 2015-2022 Kevin B. Knapp and Clap Contributors"]
+repository = "https://github.com/clap-rs/clap"
+
+[[dependency]]
+name = "clap_derive"
+version = "4.4.2"
+description = "Parse command line argument by defining a struct, derive crate."
+license = "MIT OR Apache-2.0"
+notices = ["Copyright (c) 2015-2022 Kevin B. Knapp and Clap Contributors"]
+repository = "https://github.com/clap-rs/clap/tree/master/clap_derive"
+
+[[dependency]]
+name = "clap_lex"
+version = "0.5.1"
+description = "Minimal, flexible command line parser"
+license = "MIT OR Apache-2.0"
+notices = ["Copyright (c) 2015-2022 Kevin B. Knapp and Clap Contributors"]
+repository = "https://github.com/clap-rs/clap/tree/master/clap_lex"
+
+[[dependency]]
+name = "colorchoice"
+version = "1.0.0"
+description = "Global override of color control"
+license = "MIT OR Apache-2.0"
+notices = ["Copyright (c) Individual contributors"]
+repository = "https://github.com/rust-cli/anstyle"
+
+[[dependency]]
+name = "heck"
+version = "0.4.1"
+description = "heck is a case conversion library."
+license = "MIT OR Apache-2.0"
+notices = ["Copyright (c) 2015 The Rust Project Developers"]
+authors = ["Without Boats <woboats@gmail.com>"]
+repository = "https://github.com/withoutboats/heck"
 
 [[dependency]]
 name = "proc-macro2"
@@ -108,6 +201,22 @@ repository = "https://github.com/serde-rs/serde"
 homepage = "https://serde.rs"
 
 [[dependency]]
+name = "strsim"
+version = "0.10.0"
+description = """
+Implementations of string similarity metrics. Includes Hamming, Levenshtein,
+OSA, Damerau-Levenshtein, Jaro, Jaro-Winkler, and Sørensen-Dice.
+"""
+license = "MIT"
+notices = [
+    "Copyright (c) 2015 Danny Guo",
+    "Copyright (c) 2016 Titus Wormer <tituswormer@gmail.com>",
+    "Copyright (c) 2018 Akash Kurdekar",
+]
+authors = ["Danny Guo <danny@dannyguo.com>"]
+repository = "https://github.com/dguo/strsim-rs"
+
+[[dependency]]
 name = "syn"
 version = "2.0.37"
 description = "Parser for Rust source code"
@@ -123,6 +232,18 @@ license = "(MIT OR Apache-2.0) AND Unicode-DFS-2016"
 notices = ["Copyright © 1991-2022 Unicode, Inc. All rights reserved."]
 authors = ["David Tolnay <dtolnay@gmail.com>"]
 repository = "https://github.com/dtolnay/unicode-ident"
+
+[[dependency]]
+name = "utf8parse"
+version = "0.2.1"
+description = "Table-driven UTF-8 parser"
+license = "Apache-2.0 OR MIT"
+notices = ["Copyright (c) 2016 Joe Wilm"]
+authors = [
+    "Joe Wilm <joe@jwilm.com>",
+    "Christian Duerr <contact@christianduerr.com>",
+]
+repository = "https://github.com/alacritty/vte"
 
 [[dependency]]
 name = "walkdir"
@@ -166,3 +287,84 @@ description = "Import libraries for the x86_64-pc-windows-gnu target. Please don
 license = "MIT/Apache-2.0"
 authors = ["Peter Atashian <retep998@gmail.com>"]
 repository = "https://github.com/retep998/winapi-rs"
+
+[[dependency]]
+name = "windows-sys"
+version = "0.48.0"
+description = "Rust for Windows"
+license = "MIT OR Apache-2.0"
+notices = ["Copyright (c) Microsoft Corporation."]
+authors = ["Microsoft"]
+repository = "https://github.com/microsoft/windows-rs"
+
+[[dependency]]
+name = "windows-targets"
+version = "0.48.5"
+description = "Import libs for Windows"
+license = "MIT OR Apache-2.0"
+notices = ["Copyright (c) Microsoft Corporation."]
+authors = ["Microsoft"]
+repository = "https://github.com/microsoft/windows-rs"
+
+[[dependency]]
+name = "windows_aarch64_gnullvm"
+version = "0.48.5"
+description = "Import lib for Windows"
+license = "MIT OR Apache-2.0"
+notices = ["Copyright (c) Microsoft Corporation."]
+authors = ["Microsoft"]
+repository = "https://github.com/microsoft/windows-rs"
+
+[[dependency]]
+name = "windows_aarch64_msvc"
+version = "0.48.5"
+description = "Import lib for Windows"
+license = "MIT OR Apache-2.0"
+notices = ["Copyright (c) Microsoft Corporation."]
+authors = ["Microsoft"]
+repository = "https://github.com/microsoft/windows-rs"
+
+[[dependency]]
+name = "windows_i686_gnu"
+version = "0.48.5"
+description = "Import lib for Windows"
+license = "MIT OR Apache-2.0"
+notices = ["Copyright (c) Microsoft Corporation."]
+authors = ["Microsoft"]
+repository = "https://github.com/microsoft/windows-rs"
+
+[[dependency]]
+name = "windows_i686_msvc"
+version = "0.48.5"
+description = "Import lib for Windows"
+license = "MIT OR Apache-2.0"
+notices = ["Copyright (c) Microsoft Corporation."]
+authors = ["Microsoft"]
+repository = "https://github.com/microsoft/windows-rs"
+
+[[dependency]]
+name = "windows_x86_64_gnu"
+version = "0.48.5"
+description = "Import lib for Windows"
+license = "MIT OR Apache-2.0"
+notices = ["Copyright (c) Microsoft Corporation."]
+authors = ["Microsoft"]
+repository = "https://github.com/microsoft/windows-rs"
+
+[[dependency]]
+name = "windows_x86_64_gnullvm"
+version = "0.48.5"
+description = "Import lib for Windows"
+license = "MIT OR Apache-2.0"
+notices = ["Copyright (c) Microsoft Corporation."]
+authors = ["Microsoft"]
+repository = "https://github.com/microsoft/windows-rs"
+
+[[dependency]]
+name = "windows_x86_64_msvc"
+version = "0.48.5"
+description = "Import lib for Windows"
+license = "MIT OR Apache-2.0"
+notices = ["Copyright (c) Microsoft Corporation."]
+authors = ["Microsoft"]
+repository = "https://github.com/microsoft/windows-rs"
