@@ -17,8 +17,8 @@ use walkdir::WalkDir;
 #[command(author, version, about)]
 struct Args {
     /// path to the header file
-    #[arg(long, default_value = "./NOTICE")]
-    header: PathBuf,
+    #[arg(short, long, default_value = "./NOTICE")]
+    path_header: PathBuf,
 
     /// directory to apply the header
     #[arg(short, long, default_value = ".")]
@@ -35,7 +35,7 @@ struct Args {
 
 fn main() -> anyhow::Result<()> {
     let Args {
-        header: file,
+        path_header: file,
         dir,
         extensions,
         comment_style,
