@@ -10,26 +10,26 @@ use std::{
 };
 
 use anyhow::Context;
-use argh::FromArgs;
+use clap::Parser;
 use walkdir::WalkDir;
 
-#[derive(FromArgs)]
-/// A cli to add headers to files
+#[derive(Parser)]
+#[command(author, version, about)]
 struct Args {
-    /// path to the header file, default to: ./NOTICE
-    #[argh(option, default = "PathBuf::from(\"./NOTICE\")")]
+    /// path to the header file
+    #[arg(long, default_value = "./NOTICE")]
     header: PathBuf,
 
-    /// directory to apply the header, default to current dir: .
-    #[argh(option, default = "PathBuf::from(\".\")")]
+    /// directory to apply the header
+    #[arg(short, long, default_value = ".")]
     dir: PathBuf,
 
-    /// select files by extension, default to "rs", format: comma-separated, e.g. "rs,js,kt"
-    #[argh(option, default = "String::from(\"rs\")")]
-    extensions: String,
+    /// select files by extension, e.g. rs,js,kt
+    #[arg(short, long, default_values_t = ["rs".to_string()], value_delimiter = ',')]
+    extensions: Vec<String>,
 
-    /// comment style, default to "//"
-    #[argh(option, default = "String::from(\"//\")")]
+    /// comment style
+    #[arg(short, long, default_value = "//")]
     comment_style: String,
 }
 
@@ -39,15 +39,15 @@ fn main() -> anyhow::Result<()> {
         dir,
         extensions,
         comment_style,
-    } = argh::from_env();
+    } = Args::parse();
     let header = get_header_content(&file, &comment_style)?;
-    insert_header(&dir, &header, &extensions)?;
+    insert_header(&dir, &header, extensions)?;
     Ok(())
 }
 
 fn get_header_content(header_path: &Path, comment_style: &str) -> anyhow::Result<String> {
     let mut header_file = File::open(header_path)
-        .context("Header file not found. Use the --file option or create a ./NOTICE file.")?;
+        .context("Header file not found. Use the --header option or create a ./NOTICE file.")?;
 
     let mut contents = String::new();
     header_file.read_to_string(&mut contents)?;
@@ -63,7 +63,7 @@ fn get_header_content(header_path: &Path, comment_style: &str) -> anyhow::Result
     Ok(header_comment)
 }
 
-fn insert_header(dir: &Path, header: &str, extensions: &str) -> anyhow::Result<()> {
+fn insert_header(dir: &Path, header: &str, extensions: Vec<String>) -> anyhow::Result<()> {
     for entry in WalkDir::new(dir) {
         let entry = entry?;
         let file_path = entry.path();
@@ -73,7 +73,7 @@ fn insert_header(dir: &Path, header: &str, extensions: &str) -> anyhow::Result<(
             continue;
         };
 
-        if extensions.split(',').all(|e| e != extension) {
+        if extensions.iter().all(|e| e != extension) {
             continue;
         }
 
