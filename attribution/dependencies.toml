@@ -1,6 +1,6 @@
 [[dependency]]
 name = "add-header"
-version = "0.4.0"
+version = "0.4.1"
 description = "A cli to add headers to files"
 license = "MPL-2.0"
 authors = ["AmeKnite"]
