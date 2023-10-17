@@ -18,10 +18,11 @@ A cli to add headers to files
 Usage: add-header [OPTIONS]
 
 Options:
-  -p, --path-header <PATH_HEADER>      path to the header file [default: ./NOTICE]
-  -d, --dir <DIR>                      directory to apply the header [default: .]
+      --header <HEADER>                path to the header file [default: ./NOTICE]
+      --dir <DIR>                      directory to apply the header [default: .]
   -e, --extensions <EXTENSIONS>        select files by extension, e.g. rs,js,kt [default: rs]
   -c, --comment-style <COMMENT_STYLE>  comment style [default: //]
+  -r, --remove                         remove header, run first if you need to update your header
   -h, --help                           Print help
   -V, --version                        Print version
 ```
