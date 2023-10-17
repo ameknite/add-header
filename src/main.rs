@@ -1,6 +1,7 @@
+// SPDX-License-Identifier: MPL-2.0
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this
-// file, You can obtain one at https://mozilla.org/MPL/2.0/.
+// file, You can obtain one at <https://mozilla.org/MPL/2.0/>.
 
 use std::{
     fmt::Write,
@@ -17,11 +18,11 @@ use walkdir::WalkDir;
 #[command(author, version, about)]
 struct Args {
     /// path to the header file
-    #[arg(short, long, default_value = "./NOTICE")]
-    path_header: PathBuf,
+    #[arg(long, default_value = "./NOTICE")]
+    header: PathBuf,
 
     /// directory to apply the header
-    #[arg(short, long, default_value = ".")]
+    #[arg(long, default_value = ".")]
     dir: PathBuf,
 
     /// select files by extension, e.g. rs,js,kt
@@ -31,17 +32,22 @@ struct Args {
     /// comment style
     #[arg(short, long, default_value = "//")]
     comment_style: String,
+
+    /// remove header, run first if you need to update your header
+    #[arg(short, long)]
+    remove: bool,
 }
 
 fn main() -> anyhow::Result<()> {
     let Args {
-        path_header: file,
+        header,
         dir,
         extensions,
         comment_style,
+        remove,
     } = Args::parse();
-    let header = get_header_content(&file, &comment_style)?;
-    insert_header(&dir, &header, extensions)?;
+    let header = get_header_content(&header, &comment_style)?;
+    insert_header(&dir, &header, extensions, remove)?;
     Ok(())
 }
 
@@ -63,7 +69,12 @@ fn get_header_content(header_path: &Path, comment_style: &str) -> anyhow::Result
     Ok(header_comment)
 }
 
-fn insert_header(dir: &Path, header: &str, extensions: Vec<String>) -> anyhow::Result<()> {
+fn insert_header(
+    dir: &Path,
+    header: &str,
+    extensions: Vec<String>,
+    remove: bool,
+) -> anyhow::Result<()> {
     for entry in WalkDir::new(dir) {
         let entry = entry?;
         let file_path = entry.path();
@@ -85,19 +96,27 @@ fn insert_header(dir: &Path, header: &str, extensions: Vec<String>) -> anyhow::R
         // Convert header to bytes
         let header_bytes = header.trim().as_bytes();
 
-        // Skip if the content of the header already exist
-        if existing_content
-            .windows(header_bytes.len())
-            .any(|window| window == header_bytes)
-        {
+        // Skip if the content of the header already exists
+        if !remove && existing_content.starts_with(header_bytes) {
+            continue;
+        }
+
+        // Skip if the content of the header doesn't exists
+        if remove && !existing_content.starts_with(header_bytes) {
             continue;
         }
 
         // Create a new file with the same path
         let mut new_file = File::create(file_path)?;
 
-        // Write the header followed by the existing content
-        std::io::Write::write_all(&mut new_file, header.as_bytes())?;
+        // remove or add header
+        if remove {
+            existing_content.drain(0..=header_bytes.len() + '\n'.len_utf8());
+        } else {
+            std::io::Write::write_all(&mut new_file, header.as_bytes())?;
+        }
+
+        // Write existing content
         std::io::Write::write_all(&mut new_file, &existing_content)?;
     }
     Ok(())
