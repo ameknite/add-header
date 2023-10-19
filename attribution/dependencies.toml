@@ -1,12 +1,4 @@
 [[dependency]]
-name = "add-header"
-version = "0.4.2"
-description = "A cli to add headers to files"
-license = "MPL-2.0"
-authors = ["AmeKnite"]
-repository = "https://github.com/ameknite/add-header"
-
-[[dependency]]
 name = "anstream"
 version = "0.6.4"
 description = "A simple cross platform library for writing colored text to a terminal."
