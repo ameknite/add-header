@@ -10,8 +10,11 @@ use std::{
     path::{Path, PathBuf},
 };
 
-use anyhow::Context;
 use clap::Parser;
+use color_eyre::{
+    eyre::{Context, Result},
+    Section,
+};
 use walkdir::WalkDir;
 
 #[derive(Parser)]
@@ -38,7 +41,8 @@ struct Args {
     remove: bool,
 }
 
-fn main() -> anyhow::Result<()> {
+fn main() -> Result<()> {
+    color_eyre::install()?;
     let Args {
         header,
         dir,
@@ -51,9 +55,10 @@ fn main() -> anyhow::Result<()> {
     Ok(())
 }
 
-fn get_header_content(header_path: &Path, comment_style: &str) -> anyhow::Result<String> {
+fn get_header_content(header_path: &Path, comment_style: &str) -> Result<String> {
     let mut header_file = File::open(header_path)
-        .context("Header file not found. Use the --header option or create a ./NOTICE file.")?;
+        .wrap_err("Header file not found")
+        .suggestion("Use the --header option or create a ./NOTICE file.")?;
 
     let mut contents = String::new();
     header_file.read_to_string(&mut contents)?;
@@ -69,12 +74,7 @@ fn get_header_content(header_path: &Path, comment_style: &str) -> anyhow::Result
     Ok(header_comment)
 }
 
-fn insert_header(
-    dir: &Path,
-    header: &str,
-    extensions: Vec<String>,
-    remove: bool,
-) -> anyhow::Result<()> {
+fn insert_header(dir: &Path, header: &str, extensions: Vec<String>, remove: bool) -> Result<()> {
     for entry in WalkDir::new(dir) {
         let entry = entry?;
         let file_path = entry.path();
