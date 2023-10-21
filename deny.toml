@@ -20,7 +20,7 @@ copyleft = "deny"
 allow-osi-fsf-free = "either"
 default = "deny"
 confidence-threshold = 0.8
-exceptions = [{ name = "unicode-ident", allow = ["Unicode-DFS-2016"] }]
+exceptions = []
 
 [licenses.private]
 ignore = false
