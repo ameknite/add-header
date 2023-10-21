@@ -2,7 +2,7 @@
 name = "add-header"
 description = "A cli to add headers to files"
 authors = ["AmeKnite"]
-version = "0.4.4"
+version = "0.4.5"
 license = "MPL-2.0"
 rust-version = "1.65"
 repository = "https://github.com/ameknite/add-header"
