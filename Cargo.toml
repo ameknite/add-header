@@ -12,7 +12,6 @@ keywords = ["cli", "header", "notice", "license"]
 categories = ["command-line-utilities"]
 
 [dependencies]
-argh = "0.1.12"
 clap = { version = "4.4.6", features = ["derive"] }
 color-eyre = { version = "0.6.2", default-features = false }
 walkdir = "2.4.0"

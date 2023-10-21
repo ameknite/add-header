@@ -60,45 +60,6 @@ repository = "https://github.com/rust-cli/anstyle.git"
 homepage = "https://github.com/rust-cli/anstyle"
 
 [[dependencies]]
-name = "argh"
-version = "0.1.12"
-description = "Derive-based argument parser optimized for code size"
-license = "BSD-3-Clause"
-notices = ["Copyright 2019 The Fuchsia Authors. All rights reserved."]
-authors = [
-    "Taylor Cramer <cramertj@google.com>",
-    "Benjamin Brittain <bwb@google.com>",
-    "Erick Tryzelaar <etryzelaar@google.com>",
-]
-repository = "https://github.com/google/argh"
-
-[[dependencies]]
-name = "argh_derive"
-version = "0.1.12"
-description = "Derive-based argument parsing optimized for code size"
-license = "BSD-3-Clause"
-notices = ["Copyright 2019 The Fuchsia Authors. All rights reserved."]
-authors = [
-    "Taylor Cramer <cramertj@google.com>",
-    "Benjamin Brittain <bwb@google.com>",
-    "Erick Tryzelaar <etryzelaar@google.com>",
-]
-repository = "https://github.com/google/argh"
-
-[[dependencies]]
-name = "argh_shared"
-version = "0.1.12"
-description = "Derive-based argument parsing optimized for code size"
-license = "BSD-3-Clause"
-notices = ["Copyright 2019 The Fuchsia Authors. All rights reserved."]
-authors = [
-    "Taylor Cramer <cramertj@google.com>",
-    "Benjamin Brittain <bwb@google.com>",
-    "Erick Tryzelaar <etryzelaar@google.com>",
-]
-repository = "https://github.com/google/argh"
-
-[[dependencies]]
 name = "backtrace"
 version = "0.3.69"
 description = """
@@ -327,30 +288,6 @@ license = "Unlicense/MIT"
 notices = ["Copyright (c) 2017 Andrew Gallant"]
 authors = ["Andrew Gallant <jamslam@gmail.com>"]
 repository = "https://github.com/BurntSushi/same-file"
-
-[[dependencies]]
-name = "serde"
-version = "1.0.188"
-description = "A generic serialization/deserialization framework"
-license = "MIT OR Apache-2.0"
-authors = [
-    "Erick Tryzelaar <erick.tryzelaar@gmail.com>",
-    "David Tolnay <dtolnay@gmail.com>",
-]
-repository = "https://github.com/serde-rs/serde"
-homepage = "https://serde.rs"
-
-[[dependencies]]
-name = "serde_derive"
-version = "1.0.188"
-description = "Macros 1.1 implementation of #[derive(Serialize, Deserialize)]"
-license = "MIT OR Apache-2.0"
-authors = [
-    "Erick Tryzelaar <erick.tryzelaar@gmail.com>",
-    "David Tolnay <dtolnay@gmail.com>",
-]
-repository = "https://github.com/serde-rs/serde"
-homepage = "https://serde.rs"
 
 [[dependencies]]
 name = "strsim"
